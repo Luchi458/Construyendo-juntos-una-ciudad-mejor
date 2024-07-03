@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votación</title>
+</head>
+<body>
+    <h2>Seleccione una opción para votar:</h2>
+    <button onclick="votar('hospitales')">Votar por Hospitales</button>
+    <button onclick="votar('pistas')">Votar por Pistas</button>
+    <button onclick="votar('colegios')">Votar por Colegios</button>
+
+    <form id="votacionForm" style="display: none;">
+        <h3>Indique la necesidad y la zona:</h3>
+        <label for="necesidad">Necesidad:</label><br>
+        <input type="text" id="necesidad" required><br><br>
+
+        <label for="zona">Zona:</label><br>
+        <input type="text" id="zona" required><br><br>
+
+        <button type="submit">Enviar Voto</button>
+    </form>
+
+    <script>
+        function votar(opcion) {
+            document.getElementById('votacionForm').style.display = 'block';
+
+            // Manejar la lógica de voto según la opción seleccionada
+            document.getElementById('votacionForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Evitar el envío por defecto del formulario
+
+                var necesidad = document.getElementById('necesidad').value;
+                var zona = document.getElementById('zona').value;
+
+                // Aquí se podría implementar el código para enviar el voto
+                // por ejemplo, guardando los datos localmente o enviándolos a un servidor
+
+                alert('¡Gracias por votar por ' + opcion + '!');
+
+                // Redirigir a la página inicial o a alguna página de confirmación
+                window.location.href = 'index.html';
+            });
+        }
+    </script>
+</body>
+</html>
